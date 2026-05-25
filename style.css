@@ -1,0 +1,622 @@
+/* ── Reset ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ── Design Tokens ── */
+:root {
+  --cream: #f7f2ea;
+  --warm: #ede6d3;
+  --warm-dk: #e0d5be;
+  --sage: #7a9170;
+  --sage-lt: #adc0a3;
+  --sage-bg: #e8efe5;
+  --gold: #c4a06e;
+  --gold-lt: #d9bc92;
+  --gold-dk: #8c6b38;
+  --charcoal: #2e2a26;
+  --muted: #7a6e64;
+  --white: #ffffff;
+}
+
+/* ── Page ── */
+body {
+  background: radial-gradient(ellipse at 60% 10%, #ddd5c0 0%, #ccc2aa 100%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 48px 20px;
+  font-family: 'Jost', sans-serif;
+}
+
+/* ══════════════════════════════
+   FLYER WRAPPER
+══════════════════════════════ */
+.flyer {
+  width: 460px;
+  background: var(--cream);
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow:
+    0 2px 0 rgba(255, 255, 255, 0.6) inset,
+    0 24px 64px rgba(0, 0, 0, 0.18),
+    0 6px 20px rgba(0, 0, 0, 0.1);
+  animation: fadeUp 0.7s cubic-bezier(.22, .84, .44, 1) both;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(32px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ══════════════════════════════
+   TOP HERO SECTION
+══════════════════════════════ */
+.top {
+  background: linear-gradient(170deg, var(--warm) 0%, var(--warm-dk) 100%);
+  padding: 48px 40px 40px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.top::before,
+.top::after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+}
+
+.top::before {
+  width: 260px;
+  height: 340px;
+  top: -60px;
+  left: -80px;
+  background: radial-gradient(ellipse, rgba(138, 158, 126, 0.22) 0%, transparent 65%);
+}
+
+.top::after {
+  width: 220px;
+  height: 280px;
+  bottom: -40px;
+  right: -60px;
+  background: radial-gradient(ellipse, rgba(196, 160, 110, 0.18) 0%, transparent 65%);
+}
+
+/* ── Arch Photo Frame ── */
+.arch-wrap {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 28px;
+}
+
+.arch-frame {
+  width: 148px;
+  height: 178px;
+  border-radius: 74px 74px 18px 18px;
+  border: 2.5px solid var(--gold);
+  overflow: hidden;
+  background: linear-gradient(180deg, #cdd9c8 0%, #b8c9b2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  box-shadow: 0 8px 24px rgba(140, 107, 56, 0.2);
+}
+
+.arch-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.photo-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  color: var(--sage);
+  width: 100%;
+  height: 100%;
+}
+
+.photo-placeholder span {
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.photo-placeholder span img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+/* Double-ring accent around arch */
+.arch-ring {
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 82px 82px 26px 26px;
+  border: 1px solid rgba(196, 160, 110, 0.35);
+  pointer-events: none;
+}
+
+.arch-badge {
+  position: absolute;
+  bottom: -13px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--sage);
+  color: var(--white);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(122, 145, 112, 0.4);
+}
+
+/* ── Name & Tagline ── */
+.name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 44px;
+  font-weight: 600;
+  color: var(--gold-dk);
+  letter-spacing: 0.5px;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.tagline {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16.5px;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--charcoal);
+  opacity: 0.78;
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+/* ── Ornament ── */
+.ornament {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.ornament-line {
+  flex: 1;
+  max-width: 56px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold));
+  opacity: 0.55;
+}
+
+.ornament-line:last-child {
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.ornament svg {
+  color: var(--sage);
+  flex-shrink: 0;
+}
+
+/* ── USP Pill ── */
+.highlight-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dk) 100%);
+  color: var(--white);
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  padding: 11px 24px;
+  border-radius: 50px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 16px rgba(140, 107, 56, 0.38);
+}
+
+.highlight-pill svg {
+  flex-shrink: 0;
+}
+
+/* ── Contact Bar ── */
+.contact-bar {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 14px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(196, 160, 110, 0.3);
+  border-radius: 16px;
+  padding: 13px 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.qr-box {
+  width: 52px;
+  height: 52px;
+  background: var(--white);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid rgba(0, 0, 0, 0.07);
+}
+
+.qr-box svg {
+  opacity: 0.65;
+}
+
+.contact-text {
+  text-align: left;
+}
+
+.contact-label {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--sage);
+  margin-bottom: 3px;
+}
+
+.contact-number {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--charcoal);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+/* ── WhatsApp Button ── */
+.wa-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  background: #25d366;
+  color: var(--white);
+  text-decoration: none;
+  border-radius: 12px;
+  padding: 8px 12px;
+  box-shadow: 0 3px 10px rgba(37, 211, 102, 0.38);
+  transition: transform 0.18s, box-shadow 0.18s;
+  flex-shrink: 0;
+}
+
+.wa-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.46);
+}
+
+.wa-btn svg {
+  display: block;
+}
+
+.wa-btn span {
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* ══════════════════════════════
+   GRADIENT DIVIDER
+══════════════════════════════ */
+.divider {
+  height: 2px;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      var(--sage-lt) 20%,
+      var(--gold) 50%,
+      var(--sage-lt) 80%,
+      transparent 100%);
+}
+
+/* ══════════════════════════════
+   PRICE SECTION
+══════════════════════════════ */
+.prices {
+  background: linear-gradient(170deg, var(--warm) 0%, var(--warm-dk) 100%);
+  padding: 36px 40px 44px;
+  position: relative;
+  overflow: hidden;
+}
+
+.prices::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(ellipse, rgba(196, 160, 110, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.prices::after {
+  content: '';
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(ellipse, rgba(122, 145, 112, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* ── Section Heading ── */
+.section-heading {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 400;
+  color: var(--gold-dk);
+  letter-spacing: 0.3px;
+  line-height: 1.15;
+  margin-bottom: 5px;
+}
+
+.section-sub {
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+  color: var(--sage);
+}
+
+/* ── Price Cards ── */
+.price-card {
+  background: var(--white);
+  border: 1px solid rgba(196, 160, 110, 0.2);
+  border-radius: 16px;
+  padding: 16px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+  cursor: default;
+}
+
+.price-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 20%;
+  bottom: 20%;
+  width: 3px;
+  background: var(--gold-lt);
+  border-radius: 0 3px 3px 0;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.price-card:hover::before {
+  opacity: 1;
+}
+
+.price-card:hover {
+  box-shadow: 0 8px 24px rgba(196, 160, 110, 0.16);
+  transform: translateY(-2px);
+}
+
+.price-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.price-name {
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--charcoal);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.price-duration {
+  font-size: 11px;
+  color: var(--sage);
+  letter-spacing: 0.4px;
+}
+
+.price-amount {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 30px;
+  font-weight: 600;
+  color: var(--gold-dk);
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* ── Pack Block ── */
+.pack-block {
+  background: linear-gradient(160deg, #f0ece1 0%, #e8e2d3 100%);
+  border: 1px solid rgba(173, 192, 163, 0.5);
+  border-radius: 18px;
+  padding: 6px 6px 8px;
+  margin-top: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.pack-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--sage-lt), var(--sage), var(--sage-lt));
+  border-radius: 18px 18px 0 0;
+}
+
+.pack-label-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px 14px;
+}
+
+.pack-label-line {
+  flex: 1;
+  height: 1px;
+  background: var(--sage-lt);
+  opacity: 0.5;
+}
+
+.pack-label {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--sage);
+  white-space: nowrap;
+}
+
+.price-card.pack {
+  background: rgba(255, 255, 255, 0.65);
+  border-color: rgba(173, 192, 163, 0.35);
+  margin-bottom: 8px;
+}
+
+.price-card.pack:last-child {
+  margin-bottom: 0;
+}
+
+.pack-saving {
+  display: inline-flex;
+  align-items: center;
+  background: var(--sage-bg);
+  color: var(--sage);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  padding: 3px 8px;
+  border-radius: 20px;
+  border: 1px solid rgba(122, 145, 112, 0.25);
+}
+
+/* ── CTA Banner ── */
+.cta-banner {
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  background: linear-gradient(135deg, var(--charcoal) 0%, #3f3830 100%);
+  border-radius: 16px;
+  padding: 16px 22px;
+  color: var(--cream);
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(46, 42, 38, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-banner::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 120px;
+  height: 100%;
+  background: radial-gradient(ellipse at right center, rgba(37, 211, 102, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.cta-banner:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(46, 42, 38, 0.3);
+}
+
+.cta-icon {
+  width: 42px;
+  height: 42px;
+  background: #25d366;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(37, 211, 102, 0.4);
+}
+
+.cta-copy {
+  flex: 1;
+  min-width: 0;
+}
+
+.cta-title {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+
+.cta-sub {
+  font-size: 10.5px;
+  color: var(--sage-lt);
+  letter-spacing: 0.2px;
+}
+
+.cta-arrow {
+  color: var(--gold-lt);
+  flex-shrink: 0;
+}
+
+/* ── Zone Bar ── */
+.zone-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.5px;
+}
+
+.zone-bar svg {
+  color: var(--sage);
+  flex-shrink: 0;
+}

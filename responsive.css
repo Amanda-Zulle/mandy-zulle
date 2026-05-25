@@ -1,0 +1,166 @@
+/* ══════════════════════════════
+   RESPONSIVO
+   Preserva o layout do desktop —
+   apenas escala tamanhos para mobile
+══════════════════════════════ */
+
+@media (max-width: 500px) {
+
+  /* ── Page ── */
+  body {
+    padding: 16px 12px;
+  }
+
+  /* ── Flyer: ocupa o ecrã mas mantém aparência ── */
+  .flyer {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 20px;
+  }
+
+  /* ── Hero ── */
+  .top {
+    padding: 32px 20px 28px;
+  }
+
+  .arch-frame {
+    width: 120px;
+    height: 146px;
+    border-radius: 60px 60px 14px 14px;
+  }
+
+  .arch-ring {
+    border-radius: 68px 68px 22px 22px;
+  }
+
+  .arch-badge {
+    font-size: 7.5px;
+    padding: 4px 10px;
+  }
+
+  .name {
+    font-size: 34px;
+  }
+
+  .tagline {
+    font-size: 14px;
+  }
+
+  .highlight-pill {
+    font-size: 11px;
+    padding: 9px 18px;
+  }
+
+  /* Contact bar — mantém os 3 itens em linha (grid) */
+  .contact-bar {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 10px;
+    padding: 11px 12px;
+    border-radius: 14px;
+  }
+
+  .qr-box {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+  }
+
+  .contact-label {
+    font-size: 7.5px;
+  }
+
+  .contact-number {
+    font-size: 12px;
+    white-space: normal;
+  }
+
+  .wa-btn {
+    padding: 7px 10px;
+    border-radius: 10px;
+  }
+
+  .wa-btn svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .wa-btn span {
+    font-size: 7px;
+  }
+
+  /* ── Prices ── */
+  .prices {
+    padding: 24px 16px 32px;
+  }
+
+  .section-title {
+    font-size: 26px;
+  }
+
+  .price-card {
+    padding: 12px 14px;
+    border-radius: 13px;
+  }
+
+  .price-name {
+    font-size: 13px;
+  }
+
+  .price-duration {
+    font-size: 10px;
+  }
+
+  .price-amount {
+    font-size: 26px;
+  }
+
+  .pack-block {
+    border-radius: 14px;
+  }
+
+  .pack-label {
+    font-size: 8px;
+    letter-spacing: 1.4px;
+  }
+
+  /* CTA Banner — mantém layout horizontal como no desktop */
+  .cta-banner {
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 14px;
+    border-radius: 13px;
+  }
+
+  .cta-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .cta-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .cta-title {
+    font-size: 12px;
+  }
+
+  .cta-sub {
+    font-size: 9.5px;
+  }
+
+  .cta-arrow svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  /* ── Zone Bar ── */
+  .zone-bar {
+    font-size: 10px;
+    flex-wrap: wrap;
+    text-align: center;
+  }
+}
